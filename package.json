@@ -1,6 +1,6 @@
 {
   "name": "@zakku/winston-logs",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "An elegant log formatter for Winston",
   "main": "dist/index.js",
   "author": "Krzysztof Saczuk <zakuciael@outlook.com>",
