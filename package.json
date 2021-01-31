@@ -1,8 +1,8 @@
 {
-  "name": "ts-app",
+  "name": "@zakuciael/winston-logs",
   "version": "1.0.0",
-  "description": "TypeScript App",
-  "main": "src/index.ts",
+  "description": "An elegant log formatter for Winston",
+  "main": "dist/index.js",
   "author": "Krzysztof Saczuk <zakuciael@outlook.com>",
   "license": "MIT",
   "private": true,
