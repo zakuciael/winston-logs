@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "types": "./index.d.ts",
-  "repository": "git@github.com:zakuciael/winston-logs.git",
+  "repository": "https://github.com/zakuciael/winston-logs.git",
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc -p tsconfig.json",
