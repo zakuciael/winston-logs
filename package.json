@@ -11,7 +11,8 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc -p tsconfig.json",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "prepublish": "yarn lint && yarn build"
   },
   "keywords": [
     "winston",
