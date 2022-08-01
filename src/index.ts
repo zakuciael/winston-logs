@@ -7,6 +7,9 @@ import { splat } from "./lib/splat";
 
 import { Format, format } from "logform";
 
+export type { FormatOptions, Colors } from "./types/options";
+export { LABEL } from "./lib/constants";
+
 export const elegantFormat = (opts?: FormatOptions): Format => {
     const colorize = opts?.colorize ?? true;
 

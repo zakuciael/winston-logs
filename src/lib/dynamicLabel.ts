@@ -5,6 +5,9 @@ import { format } from "logform";
 import { SPLAT } from "triple-beam";
 import { LABEL } from "./constants";
 
+/**
+ * @internal
+ */
 export const dynamicLabel = format((info: Info, opts: DynamicLabelOptions) => {
     // Check if the label is set in the options object.
     if (opts.label) info.label = opts.label;

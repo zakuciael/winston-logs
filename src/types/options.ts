@@ -1,25 +1,41 @@
 import type { Color } from "chalk";
 
+export interface Colors {
+    [key: string]: typeof Color;
+}
+
+/**
+ * @internal
+ */
 export interface SplatterOptions {
     colorize?: boolean;
 }
 
+/**
+ * @internal
+ */
 export interface PrettyPrintOptions {
     depth?: number;
     colorize?: boolean;
 }
 
+/**
+ * @internal
+ */
 export interface MessageFormatterOptions {
     colorize?: boolean;
-    colors?: { [key: string]: typeof Color };
+    colors?: Colors;
 }
 
+/**
+ * @internal
+ */
 export interface DynamicLabelOptions {
     label?: string;
 }
 
 export interface FormatOptions {
     colorize?: boolean;
-    colors?: MessageFormatterOptions["colors"];
-    label?: DynamicLabelOptions["label"];
+    colors?: Colors;
+    label?: string;
 }

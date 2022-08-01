@@ -7,11 +7,12 @@
     "module": "CommonJS",
     "outDir": "dist/",
     "rootDir": "src/",
+    "declaration": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "downlevelIteration": true,
+    "stripInternal": true
   },
   "exclude": [
     "node_modules/",

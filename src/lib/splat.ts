@@ -56,4 +56,7 @@ class Splatter implements Format {
     }
 }
 
+/**
+ * @internal
+ */
 export const splat = (opts: SplatterOptions): Splatter => new Splatter(opts);

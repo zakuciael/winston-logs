@@ -5,6 +5,9 @@ import { configs, MESSAGE } from "triple-beam";
 import { format } from "logform";
 import chalk from "chalk";
 
+/**
+ * @internal
+ */
 export const messageFormatter = format((info: Info, opts: MessageFormatterOptions) => {
     const colors: MessageFormatterOptions["colors"] = {
         ...configs.npm.colors,
