@@ -1,17 +1,12 @@
+import type { SplatterOptions } from "../types/options";
+import type { Info } from "../types/info";
+
 import { Format, TransformableInfo } from "logform";
 import { formatWithOptions } from "util";
 import { SPLAT } from "triple-beam";
 
 const formatRegExp = /%[scdjifoO%]/g;
 const escapedPercent = /%%/g;
-
-interface Info extends TransformableInfo {
-    [SPLAT]?: keyof TransformableInfo;
-}
-
-interface SplatterOptions {
-    colorize?: boolean;
-}
 
 class Splatter implements Format {
     options: SplatterOptions;

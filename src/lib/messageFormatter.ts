@@ -1,23 +1,33 @@
-import { configs } from "triple-beam";
-import chalk, { Chalk } from "chalk";
-import { format } from "logform";
-import { level } from "winston";
+import type { MessageFormatterOptions } from "../types/options";
+import type { Info } from "../types/info";
 
-export const messageFormatter = format.printf((info) => {
-    const colors: { [key: string]: Chalk } = {
-        ...Object.keys(configs.npm.colors).reduce<{ [key: string]: Chalk }>((acc, key) => {
-            acc[key] = chalk.keyword(configs.npm.colors[key]);
-            return acc;
-        }, {}),
-        info: chalk.blueBright,
-        debug: chalk.yellowBright,
-        error: chalk.redBright,
-        warn: chalk.grey,
+import { configs, MESSAGE } from "triple-beam";
+import { format } from "logform";
+import chalk from "chalk";
+
+export const messageFormatter = format((info: Info, opts: MessageFormatterOptions) => {
+    const colors: MessageFormatterOptions["colors"] = {
+        ...configs.npm.colors,
+        info: "blueBright",
+        debug: "yellowBright",
+        error: "redBright",
+        warn: "grey",
+        ...(opts.colors ?? {}),
     };
 
-    return chalk`{grey ${info.timestamp}} {bold [}${colors[info.level](
-        info.level.toUpperCase()
-    )}{bold ]}${info.label ? chalk`{bold [}{greenBright ${info.label}}{bold ]}` : ""} ${
-        info.stack && configs.npm.levels[level] > -1 ? info.stack : info.message
-    }`;
+    if (opts.colorize) {
+        info[MESSAGE] =
+            chalk`{grey ${info.timestamp}} ` +
+            chalk`{bold [}{${colors[info.level]} ${info.level.toUpperCase()}}{bold ]}` +
+            (info.label ? chalk`{bold [}{greenBright ${info.label}}{bold ]} ` : " ") +
+            (typeof info.stack === "string" ? info.stack : info.message);
+    } else {
+        info[MESSAGE] =
+            `${info.timestamp} ` +
+            `[${info.level.toUpperCase()}]` +
+            (info.label ? `[${info.label}] ` : " ") +
+            (typeof info.stack === "string" ? info.stack : info.message);
+    }
+
+    return info;
 });
