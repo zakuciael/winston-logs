@@ -1,10 +1,12 @@
 import type { TransformableInfo } from "logform";
 import type { MESSAGE, SPLAT } from "triple-beam";
+import type { LABEL } from "../lib/constants";
 
 export interface Info extends TransformableInfo {
-    [MESSAGE]?: keyof TransformableInfo;
-    [SPLAT]?: keyof TransformableInfo;
-    label?: keyof TransformableInfo;
-    timestamp?: keyof TransformableInfo;
-    stack?: keyof TransformableInfo;
+    [MESSAGE]?: string | Record<string, unknown>;
+    [SPLAT]?: unknown[];
+    [LABEL]?: string;
+    label?: string;
+    timestamp?: string;
+    stack?: string;
 }
