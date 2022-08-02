@@ -19,7 +19,7 @@ export const elegantFormat = (opts?: FormatOptions): Format => {
         dynamicLabel({ label: opts?.label }),
         splat({ colorize }),
         prettyPrint({ depth: 3, colorize }),
-        messageFormatter({ colors: opts?.colors, colorize })
+        messageFormatter({ colors: opts?.colors, labelColors: opts?.labelColors, colorize })
     );
 };
 

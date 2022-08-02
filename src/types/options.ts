@@ -4,6 +4,10 @@ export interface Colors {
     [key: string]: typeof Color;
 }
 
+export interface LabelColors {
+    [key: number]: typeof Color;
+}
+
 /**
  * @internal
  */
@@ -25,17 +29,19 @@ export interface PrettyPrintOptions {
 export interface MessageFormatterOptions {
     colorize?: boolean;
     colors?: Colors;
+    labelColors?: LabelColors;
 }
 
 /**
  * @internal
  */
 export interface DynamicLabelOptions {
-    label?: string;
+    label?: string | string[];
 }
 
 export interface FormatOptions {
     colorize?: boolean;
     colors?: Colors;
-    label?: string;
+    labelColors?: LabelColors;
+    label?: string | string[];
 }

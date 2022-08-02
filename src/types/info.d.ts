@@ -8,8 +8,8 @@ import type { LABEL } from "../lib/constants";
 export interface Info extends TransformableInfo {
     [MESSAGE]?: string | Record<string, unknown>;
     [SPLAT]?: unknown[];
-    [LABEL]?: string;
-    label?: string;
+    [LABEL]?: string | string[];
+    label?: string | string[];
     timestamp?: string;
     stack?: string;
 }
