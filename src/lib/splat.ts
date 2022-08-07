@@ -26,9 +26,11 @@ class Splatter implements Format {
             const metas = splat.length > 1 ? splat.splice(0) : splat;
 
             if (metas.length)
-                for (let i = 0; i < metas.length; i++) {
-                    Object.assign(info, metas[i]);
-                }
+                info.message = formatWithOptions(
+                    { colors: this.options.colorize || false },
+                    msg,
+                    ...metas
+                );
 
             return info;
         }
