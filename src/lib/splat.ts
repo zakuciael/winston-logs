@@ -48,10 +48,10 @@ class Splatter implements Format {
         const extraSplat = expectedSplat - splat.length;
         const metas = extraSplat < 0 ? splat.splice(extraSplat, -1 * extraSplat) : [];
 
-        if (metas.length)
-            for (let i = 0; i < metas.length; i++) {
-                Object.assign(info, metas[i]);
-            }
+        if (metas.length) {
+            info[SPLAT] = metas;
+            if (metas[0] instanceof Error) info.stack = metas[0].stack;
+        }
 
         info.message = formatWithOptions({ colors: this.options.colorize || false }, msg, ...splat);
         return info;
